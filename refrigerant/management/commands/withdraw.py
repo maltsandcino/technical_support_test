@@ -9,7 +9,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         Vessel.objects.create(name="Test Vessel", content=50.0)
-
         self.stdout.write("Simulating condition...")
         self.run_simulation()
 
@@ -54,5 +53,4 @@ class Command(BaseCommand):
         t2.join()
 
         vessel = Vessel.objects.get(id=1)
-        
         self.stdout.write(f"Remaining content: {vessel.content} kg")
